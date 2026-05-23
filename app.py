@@ -7,15 +7,15 @@ import io
 st.set_page_config(page_title="Mes Outils Python", page_icon="⚡", layout="centered")
 
 # 2. Création du menu de navigation sur le côté
-st.sidebar.title("🎛️ Navigation")
+st.sidebar.title("Outils")
 choix = st.sidebar.radio("Choisir un outil :", ["Générateur de QR Code", "Compresseur d'Image"])
 
 # -------------------------------------------------------------
 # OUTIL 1 : GÉNÉRATEUR DE QR CODE
 # -------------------------------------------------------------
 if choix == "Générateur de QR Code":
-    st.title("🔗 Générateur de QR Code")
-    st.write("Entrez une URL pour générer instantanément un QR Code téléchargeable.")
+    st.title("Générateur de QR Code")
+    st.write("Entrez une URL")
 
     # Formulaire visuel
     url = st.text_input("Collez votre URL ici (ex: https://...):", "")
@@ -38,7 +38,7 @@ if choix == "Générateur de QR Code":
         
         # Bouton de téléchargement du site
         st.download_button(
-            label="💾 Télécharger le QR Code",
+            label=" Télécharger le QR Code",
             data=byte_im,
             file_name=f"{nom_fichier}.png",
             mime="image/png"
@@ -48,7 +48,7 @@ if choix == "Générateur de QR Code":
 # OUTIL 2 : COMPRESSEUR D'IMAGE
 # -------------------------------------------------------------
 elif choix == "Compresseur d'Image":
-    st.title("🖼️ Compresseur d'Image Intelligent")
+    st.title("Compresseur d'Image ")
     st.write("Glissez une image lourde pour réduire son poids sans perdre en qualité.")
 
     # Zone de glisser-déposer visuelle
@@ -59,7 +59,7 @@ elif choix == "Compresseur d'Image":
         img = Image.open(fichier_image)
         poids_origine = fichier_image.size / (1024 * 1024) # Conversion en Mo
         
-        st.write(f"📊 Poids original : **{poids_origine:.2f} Mo**")
+        st.write(f" Poids original : **{poids_origine:.2f} Mo**")
 
         # Algorithme de traitement (conversion RGB si PNG)
         if img.mode in ('RGBA', 'P'):
@@ -83,7 +83,7 @@ elif choix == "Compresseur d'Image":
             gain = ((poids_origine - poids_sortie) / poids_origine) * 100
 
             # Affichage des résultats avec des badges de couleur
-            st.success(f"🔥 Compression terminée ! Nouveau poids : **{poids_sortie:.2f} Mo** (-{gain:.1f}%)")
+            st.success(f" Compression terminée ! Nouveau poids : **{poids_sortie:.2f} Mo** (-{gain:.1f}%)")
             
             # Bouton de téléchargement
             st.download_button(
