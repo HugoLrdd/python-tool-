@@ -26,7 +26,7 @@ if choix == "Générateur de QR Code":
         qr = qrcode.QRCode(version=1, box_size=10, border=4)
         qr.add_data(url)
         qr.make(fit=True)
-        img = qr.make_image(fill_color="blue", back_color="purple")
+        img = qr.make_image(fill_color="blue", back_color="black")
         
         # Sauvegarde en mémoire pour le téléchargement web
         buf = io.BytesIO()
